@@ -32,7 +32,6 @@ class _Recommed_DetailState extends State<Recommed_Detail> {
           borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
       builder: (BuildContext context) {
         return DraggableScrollableSheet(
-            expand: false,
             initialChildSize: 0.4,
             maxChildSize: 0.9,
             minChildSize: 0.35,
