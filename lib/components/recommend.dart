@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_foodpanda/components/card_popular.dart';
+import 'package:flutter_foodpanda/components/card_recommed.dart';
+import 'package:flutter_foodpanda/details/recommend_detail.dart';
 import 'package:flutter_foodpanda/models/recommendModel.dart';
 
 class Recommend extends StatefulWidget {
@@ -62,12 +63,20 @@ class _RecommendState extends State<Recommend> {
           itemCount: recommendData.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return Card_popular(
+            return Card_Recommed(
                 model: recommendModel(
-                    recommendData[index]["title"],
-                    recommendData[index]["type"],
-                    recommendData[index]["img"],
-                    recommendData[index]["price"]));
+                  recommendData[index]["title"],
+                  recommendData[index]["type"],
+                  recommendData[index]["img"],
+                  recommendData[index]["price"],
+                ),
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Recommed_Detail(
+                        model: recommendData[index],
+                      ),
+                    )));
           }),
     );
   }
