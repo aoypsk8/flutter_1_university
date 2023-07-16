@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_foodpanda/components/card_dilivery.dart';
+import 'package:flutter_foodpanda/models/delivery_model.dart';
 
 class Deliverly extends StatefulWidget {
   const Deliverly({Key? key}) : super(key: key);
@@ -16,6 +18,64 @@ class _DeliverlyState extends State<Deliverly> {
     {'img': "assets/pomotion5.jpeg"},
     {'img': "assets/pomotion6.jpeg"},
   ];
+
+  List<dynamic> Dilivery_Data = [
+    {
+      'title': "ຮ່ອງແກ",
+      'type': "ເຄື່ອງດື່ມອາເມຊອນ",
+      'img':
+          "https://th.bing.com/th/id/R.06996a46aa6971f433e4222e51d70261?rik=y6mlNe%2f1%2feHR8Q&pid=ImgRaw&r=0",
+      "price": "10000",
+      "subtext":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+      'title': "ດົງໂດກ",
+      'type': "ແກງ",
+      'img':
+          "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "price": "12000",
+      "subtext":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+      'title': "ພະຂາວ",
+      'type': "ສະລັດ",
+      'img':
+          "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "price": "9000",
+      "subtext":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+      'title': "ທ່າພະ",
+      'type': "ຫມາກໄມ້",
+      'img':
+          "https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "price": "5000",
+      "subtext":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+      'title': "ຫນ່ອງພົງ",
+      'type': "ໄຂ່",
+      'img':
+          "https://images.pexels.com/photos/17609/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "price": "15000",
+      "subtext":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+      'title': "ຊຽງຄວນ",
+      'type': "ສະລັດ",
+      'img':
+          "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "price": "7000",
+      "subtext":
+          "Loremdd ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +91,10 @@ class _DeliverlyState extends State<Deliverly> {
         elevation: 0,
         toolbarHeight: 120,
         backgroundColor: Colors.white,
-        title: Column(
+        title: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text("ສະຖານທີ່ປະຈຸບັນ",
                 style: TextStyle(
                     fontSize: 18,
@@ -44,11 +104,11 @@ class _DeliverlyState extends State<Deliverly> {
                 style: TextStyle(fontSize: 14, color: Colors.black)),
           ],
         ),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 20),
+            padding: EdgeInsets.only(right: 20),
             child: Row(
-              children: const [
+              children: [
                 Icon(Icons.favorite_border_outlined,
                     size: 25, color: Colors.pink),
                 SizedBox(width: 15),
@@ -163,6 +223,32 @@ class _DeliverlyState extends State<Deliverly> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 8),
+              child: Container(
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    mainAxisExtent: 250,
+                  ),
+                  itemCount: Dilivery_Data.length,
+                  itemBuilder: (context, index) {
+                    return Card_Dilivery(
+                        model: delivery_model(
+                      Dilivery_Data[index]["title"],
+                      Dilivery_Data[index]["type"],
+                      Dilivery_Data[index]["img"],
+                      Dilivery_Data[index]["price"],
+                      Dilivery_Data[index]["subtext"],
+                    ));
+                  },
+                ),
+              ),
+            )
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_foodpanda/components/card_recommed.dart';
-import 'package:flutter_foodpanda/details/recommend_detail.dart';
 import 'package:flutter_foodpanda/models/recommendModel.dart';
 
 class Recommend extends StatefulWidget {
@@ -64,7 +63,7 @@ class _RecommendState extends State<Recommend> {
           "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "price": "7000",
       "subtext":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+          "Loremdd ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
     },
   ];
   @override
